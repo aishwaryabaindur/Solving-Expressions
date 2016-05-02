@@ -1,0 +1,95 @@
+import TerminalIO.KeyboardReader;
+
+public class TheromProg
+{
+	public static void main (String [] args)
+	{
+		int numM, numN, numTemp, side1, side2, hypotenuse;
+		char option;
+		boolean validValue;
+		KeyboardReader reader = new KeyboardReader();
+		
+		System.out.println ("\\-Pythagorean Theorem Program-/");
+	
+		do
+		{
+			// Checks and keeps looping till correct value is entered
+			do
+			{
+				numM = reader.readInt("Enter first positive integer: ");	
+				if (numM <= 0)
+				{
+					System.out.println ("Incorrect Value. \u0007");			
+				}
+			} while (numM <= 0);
+
+			// Checks and keeps looping till correct value is entered
+			do
+			{		
+				numN = reader.readInt("Enter a positive integer other than " + numM + ": ");
+				if ((numN <= 0) || (numN == numM))
+				{	
+					System.out.println ("Incorrect Value. \u0007 ");					
+				}
+			} while ((numN <= 0) || (numN == numM));
+			
+			// Sets highest value to numM
+			if (numM < numN)
+			{
+				
+				numTemp = numN;
+				numN = numM;
+				numM = numTemp;
+			}
+			
+		
+			side1 = (int)(Math.pow(numM,2) - Math.pow(numN,2));
+			side2 = 2 * numM * numN;
+			hypotenuse = (int)(Math.pow(numM,2) + Math.pow(numN,2));
+			
+			System.out.println ("The triplet is " + side1 + " " + side2 + " " +	hypotenuse);
+			
+			
+			// Pythagorean Theorem Checker
+			System.out.println (" ");
+			System.out.println ("Pythagorean Theorem Checker v3.56 build 55");
+			int sumOfSides;
+			System.out.print ("Working");
+			for (long i = 0; i < 50000000; i++);
+			{
+			}
+			System.out.print (".");
+			for (long i = 0; i < 50000000; i++);
+			{
+			}
+			System.out.print (".");	
+			for (long i = 0; i < 50000000; i++);
+			{
+			}
+			System.out.print (".");
+			for (long i = 0; i < 50000000; i++);
+			{
+			}
+			System.out.print (".");		
+			for (long i = 0; i < 50000000; i++);
+			{
+			}
+			System.out.println (" Done");	
+			sumOfSides = (side1 * side1) + (side2 * side2);
+			if (sumOfSides == (hypotenuse * hypotenuse))
+			{
+				System.out.println ("Triplet is Verified");
+			}
+			else
+			{
+				System.out.println ("Triplet is Not Verified");
+			}
+									
+			System.out.print ("Would you like to find another (Y/N): ");
+			option = reader.readChar();
+			System.out.println ("\n");
+		} while (option == 'Y');
+		
+	}
+	
+}
